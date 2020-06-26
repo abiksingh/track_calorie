@@ -76,12 +76,6 @@ const StorageCtrl =(()=>{
 
 // Item Controller
 
-// const Item = (function(){
-//     console.log('Control');
-// })();
-
-//Arrow Function
-
 const ItemCtrl = (() =>{
     // Item Constructor
     class Item{
@@ -93,14 +87,7 @@ const ItemCtrl = (() =>{
 } 
 
     const data = {
-        // items:[
-        //     // { id:0, name:'Ice Cream', calories:400
-        //     // },
-        //     // { id:1, name:'Chicken Curry', calories:200
-        //     // },
-        //     // { id:2, name:'Mutton', calories:600
-        //     // }
-        //       ],
+       
         items:StorageCtrl.getItemsFormStorage(),
 
             CurrentItem:null,
@@ -393,17 +380,16 @@ const App = ((ItemCtrl, StorageCtrl, UiCtrl) =>{
   const itemAddSubmit = (e)=>{
    
    
-   // console.log('add');
 
    const input1 = UiCtrl.getItem();
 
-  // console.log(input1);
+  
 
 
   //CHECK FOR NAME AND CALORIE INPUT
 
   if(input1.name!=='' && input1.calorie!==''){
-   // console.log(123);
+   
 
    const newItem = ItemCtrl.addItem(input1.name, input1.calorie);
 
@@ -428,21 +414,21 @@ const App = ((ItemCtrl, StorageCtrl, UiCtrl) =>{
   const itemEditClick = (e)=>{
    
 
-      //console.log(e.target);
+    
     if(e.target.classList.contains('edit-item')){
 
         const ListId = e.target.parentNode.parentNode.id;
-        //console.log(ListId);
+       
 
         const ListIdArr = ListId.split('-');
-       // console.log(ListIdArr);
+     
 
 
         const id = parseInt(ListIdArr[1]); // pareseInt means convert to number
 
         const itemToEdit = ItemCtrl.getItemByID(id);
 
-       // console.log(itemToEdit);
+
 
        ItemCtrl.setCurrentItem(itemToEdit);
 
@@ -461,7 +447,7 @@ const App = ((ItemCtrl, StorageCtrl, UiCtrl) =>{
 
   const itemUpdateSubmit = (e)=>{
    
-   // console.log('update');
+
     // get Item
    const input = UiCtrl.getItem();
 
@@ -491,7 +477,7 @@ const App = ((ItemCtrl, StorageCtrl, UiCtrl) =>{
 
   const itemDeleteSubmit = (e)=>{
      
-   //   console.log(123);
+ 
 
    const currentItem = ItemCtrl.getCurrentItem();
 
@@ -571,8 +557,3 @@ const App = ((ItemCtrl, StorageCtrl, UiCtrl) =>{
 App.init();
 
 
-
-
-//JSON.stringify(); // used to convert array/object to String
-
-//JSON.parse(); // used to covert string to arrays/object
